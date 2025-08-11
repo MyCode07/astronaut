@@ -1,0 +1,115 @@
+// null default styles
+@import "null";
+
+// load fonts
+// @import "fonts";
+@import "fonts";
+
+//load variables
+@import "common/variables";
+
+// load mixins
+@import "mixins";
+
+// load swiper
+@import "../../node_modules/swiper/swiper";
+
+// load common
+@import "common/common";
+
+// load header
+@import "common/header";
+
+// load footer
+@import "common/footer";
+
+// load footer
+@import "common/to-top";
+
+
+// load error 404
+@import "common/404";
+
+// load accordeon
+@import "common/accordeon";
+
+// load hero
+@import "parts/hero";
+
+// load hero
+@import "parts/section";
+
+// load main
+@import "parts/main";
+
+// load casino-slider
+@import "parts/casino-slider";
+
+// load dark-slider
+@import "parts/dark-slider";
+
+// load roulette-slider
+@import "parts/roulette-slider";
+
+// load flex
+@import "parts/flex";
+
+// load grid
+@import "parts/grid";
+
+// load passo
+@import "parts/passo";
+
+// load cards
+@import "parts/cards";
+
+// load faq
+@import "parts/faq";
+
+// load payment
+@import "parts/payment";
+
+// load text
+@import "parts/text";
+
+// load game-popup
+@import "parts/game-popup";
+
+// load wordpress
+@import "parts/wordpress";
+
+.pages {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    background-color: #020202;
+    z-index: 10000;
+    color: #fff;
+    width: fit-content;
+    height: auto;
+    padding: 20px;
+    transform: translate(0, -50%);
+
+    &._hide {
+        transform: translate(-100%, -50%);
+    }
+
+    button {
+        padding: 5px;
+        background-color: #000;
+        margin-bottom: 10px;
+        position: absolute;
+        left: 100%;
+        top: 0;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    a {
+        display: block;
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+}
