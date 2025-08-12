@@ -1,5 +1,116 @@
-section {
-    &:not(.hero) {
-        display: none;
+.section {
+    padding: 70px 0;
+
+    @media (max-width:768px) {
+        padding: 60px 0;
     }
+
+    // .section__container
+
+    &__container {}
+
+    // .section__body
+
+    &__body {}
+
+    // .section__title
+
+    &__title {
+        margin-bottom: 40px;
+
+        @media (max-width:768px) {
+            margin-bottom: 30px;
+        }
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        text-align: center;
+
+        &._left {
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        p {
+            margin-top: 20px;
+            max-width: 754px;
+        }
+    }
+
+    position: relative;
+
+    .rocket {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+
+        @include adaptive-value('width', 473, 150, 1);
+
+        img,
+        picture,
+        figure {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+}
+
+.adv {
+    position: relative;
+
+    .section__title {
+        margin-bottom: 95px;
+
+        @media (max-width:768px) {
+            margin-bottom: 76px;
+        }
+
+        h2 {
+            max-width: 615px;
+        }
+    }
+
+    .swiper {
+        @media (min-width:769px) {
+            overflow: visible;
+        }
+
+        @media (max-width:768px) {
+            width: 100vw;
+            padding-inline: 16px;
+            margin-left: -16px;
+
+            padding-top: 50px;
+            margin-top: -50px;
+            padding-bottom: 20px;
+            margin-bottom: -20px;
+        }
+
+        &-wrapper {
+            @media (min-width:769px) {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 95px 20px;
+
+                overflow: visible;
+            }
+        }
+
+        &-slide {
+            @media (max-width:768px) {
+                width: 288px;
+            }
+        }
+    }
+
+    .swiper-btns {
+        @media (min-width:769px) {
+            display: none;
+        }
+    }
+
 }

@@ -71,3 +71,19 @@ $mobileWidth: 320;
         }
     }
 }
+
+
+@mixin container {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 982px;
+
+
+    @media (max-width: 1024px) {
+        padding-inline: 30px;
+    }
+
+    @media (max-width: 768px) {
+        padding-inline: 16px;
+    }
+}
