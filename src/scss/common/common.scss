@@ -38,28 +38,42 @@ main {
     @include container;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Rubik;
+    line-height: normal;
+}
 
 h1 {
-    font-family: Rubik;
     font-size: 56px;
     font-weight: 700;
-    line-height: normal;
 }
 
 h2 {
     @include adaptive-value("font-size", 40, 28, 1);
-    font-family: Rubik;
     font-weight: 600;
-    line-height: normal;
     text-transform: uppercase;
 }
 
 
 h3 {
-    font-family: Rubik;
     font-size: 24px;
     font-weight: 600;
-    line-height: normal;
+}
+
+h4 {
+    font-style: 18px;
+    font-weight: 600;
+}
+
+h5,
+h6 {
+    font-size: 16px;
+    font-weight: 600;
 }
 
 a {
@@ -121,6 +135,11 @@ td {
     background: rgba(255, 255, 255, 0.10);
     box-shadow: 1.5px 3px 3px 0 rgba(0, 0, 0, 0.08);
 
+    @media (max-width:768px) {
+        height: 48px;
+        font-size: 15px;
+    }
+
     @media (any-hover: hover) {
         &:hover {
             background-color: $white;
@@ -145,15 +164,44 @@ td {
     }
 }
 
-._text {
-    font-size: 20px;
-    font-family: Nunito;
+._text-box {
 
-    @media (max-width: 768px) {
-        font-size: 18px;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 1em;
     }
 
-    a {
+    ul li {
+        list-style: initial;
+    }
+
+    ol li {
+        list-style: decimal;
+    }
+
+    ul,
+    ol {
+        padding-left: 1.5em;
+
+        li {
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+        }
+    }
+
+    ul,
+    ol,
+    p {
+        margin-bottom: 1em;
+    }
+
+    a:not(._button) {
         color: #0085ff;
         border-bottom: 1px solid currentColor;
         transition: all 0.3s ease 0s;
@@ -164,6 +212,7 @@ td {
             }
         }
     }
+
 }
 
 table {
@@ -174,6 +223,10 @@ table {
 
     border-radius: 10px;
     box-shadow: 0 3.664px 7.329px 0 rgba(0, 0, 0, 0.06), 0 0 0.916px 0 rgba(0, 0, 0, 0.06);
+
+    @media (max-width:768px) {
+        font-size: 12px;
+    }
 
     tr {
         // display: flex;
@@ -187,7 +240,7 @@ table {
         padding: 1em !important;
 
         @media (max-width: 768px) {
-            padding: 1em 0.5em !important;
+            padding: 16px !important;
         }
     }
 
@@ -199,7 +252,7 @@ table {
         vertical-align: top;
 
         @media (max-width: 768px) {
-            padding: 5px 10px !important;
+            padding: 16px !important;
         }
 
         &:first-child {
@@ -230,8 +283,10 @@ table {
         }
 
         tr {
+            font-weight: 500;
+
             & > :first-child {
-                font-weight: 600;
+                font-weight: 700;
             }
         }
 

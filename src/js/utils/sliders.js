@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 
 const casinoSlider = document.querySelectorAll('.swiper');
 
@@ -18,6 +18,26 @@ if (casinoSlider.length) {
                 navigation: {
                     prevEl: prev,
                     nextEl: next,
+                }
+            })
+        }
+
+        if (slider.closest('.play')) {
+            new Swiper(slider, {
+                modules: [Pagination],
+                slidesPerView: 1,
+                spaceBetween: 20,
+                pagination: {
+                    el: pagination,
+                    clickable: true,
+                    renderBullet: (index, className) => {
+                        return '<span class="' + className + '">' + (index + 1) + '</span>';
+                    },
+                },
+                on: {
+                    slideChange: (swiper) => {
+                        console.log(swiper.activeIndex, swiper.slides.length);
+                    }
                 }
             })
         }
