@@ -1,6 +1,5 @@
 import { isMobile } from './isMobile.js';
 
-const body = document.body;
 const menu = document.querySelector('.menu');
 const burger = document.querySelector('.header__burger');
 const menuLinks = document.querySelectorAll('.menu li a');
@@ -9,22 +8,12 @@ const header = document.querySelector('.header');
 // open menu
 if (burger) {
     burger.addEventListener('click', (е) => {
-
         burger.classList.toggle('_active');
         menu.classList.toggle('_open');
-
-        if (menu.classList.contains('_open')) {
-            // header.classList.add('_sticky');
-        }
-        else {
-            // header.classList.remove('_sticky');
-        }
     })
 }
 
 
-
-// close menu and unlock body clicking on menu items
 if (menuLinks.length) {
     menuLinks.forEach(link => {
         link.addEventListener('click', (е) => {
@@ -41,7 +30,6 @@ if (menuLinks.length) {
         })
     })
 }
-
 
 
 // menu arrow buttom
@@ -70,23 +58,6 @@ if (submenuList.length) {
                     }
                 })
             }
-
-            if (!isMobile.any() && li.closest('.header')) {
-                li.addEventListener('mouseenter', function () {
-                    header.classList.add('_sticky')
-                })
-
-                li.addEventListener('mouseleave', function () {
-                    header.classList.remove('_sticky')
-                })
-            }
-
-            const btnArrow = li.querySelector('.menu-arrow');
-            if (btnArrow && isMobile.any()) {
-                btnArrow.addEventListener('click', function () {
-                    toggleMenu(li)
-                })
-            }
         }
     })
 
@@ -113,20 +84,15 @@ if (submenuList.length) {
 }
 
 
-
-// clsoe menu clicking not on document(not menu) area
 document.addEventListener('click', function (e) {
     let targetEl = e.target;
 
     if (targetEl.classList.contains('menu__close')) {
         burger.classList.remove('_active');
         menu.classList.remove('_open');
+    }
 
-        if (!header.classList.contains('_scrolled')) {
-            header.classList.remove('_open');
-        }
-
-        if (!menu.classList.contains('_open')) {
-        }
+    if (!targetEl.closest('li[data-open]') && document.querySelector('li[data-open]')) {
+        document.querySelector('li[data-open]').removeAttribute('data-open')
     }
 })

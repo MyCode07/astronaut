@@ -1,6 +1,9 @@
 .header {
     background-size: cover;
     background-color: $white;
+    position: sticky;
+    top: 0;
+    z-index: 15;
 
     // .header__container
 
@@ -34,6 +37,7 @@
 
             li {
                 @include underline;
+                position: relative;
 
                 &:has(button) {
                     display: flex;
@@ -71,8 +75,41 @@
                 }
             }
 
-            ul {
-                display: none;
+            li:has(ul) {
+                @media (any-hover: hover) {
+                    &:hover {
+                        @include dropdownMenu;
+                    }
+                }
+
+                &[data-open] {
+                    @include dropdownMenu;
+                }
+
+
+                ul {
+                    position: absolute;
+                    top: 100%;
+                    padding: 20px;
+                    z-index: 3;
+
+                    width: 220px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 12px;
+
+
+                    text-align: left;
+
+                    border-radius: 10px;
+                    background-color: $white;
+                    box-shadow: 0 4px 8px 0 rgba($color: $black, $alpha: 0.1);
+
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: opacity 0.3s ease 0s;
+                }
             }
         }
 
@@ -140,7 +177,26 @@
                 top: calc(100% - 4px);
                 width: 50%;
             }
+        }
 
+        &._active span {
+            &:first-child {
+                width: 100%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+            }
+
+            &:nth-child(3) {
+                width: 100%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
         }
     }
 }
