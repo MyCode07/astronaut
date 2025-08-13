@@ -5,30 +5,13 @@
     padding-top: 95px;
     padding-inline: 16px;
     padding-bottom: 54px;
-    border-radius: 12px;
-
-    background: $white;
-    box-shadow: 0 3.664px 7.329px 0 rgba(0, 0, 0, 0.06), 0 0 0.916px 0 rgba(0, 0, 0, 0.06);
-    position: relative;
 
     @media (max-width:768px) {
         padding-top: 69px;
         padding-bottom: 49px;
     }
 
-    &:before {
-        position: absolute;
-        content: '';
-
-        inset: -2px;
-
-        z-index: -1;
-        border-radius: 14px;
-
-        background: linear-gradient(rgba($color: #E90307, $alpha: 0.55),
-                rgba($color: #AF0003, $alpha: 0.03));
-    }
-
+    @include gradientBorder;
 
     .icon {
         position: absolute;
@@ -324,10 +307,6 @@
     }
 }
 
-
-
-
-
 .play-card {
     min-height: 100%;
     display: flex;
@@ -338,7 +317,7 @@
     ._button {
         margin-top: 30px;
 
-        @media (max-width:768px){
+        @media (max-width:768px) {
             width: 100%;
         }
     }
@@ -349,7 +328,7 @@
         width: 354px;
         flex: 0 0 auto;
 
-        @media (max-width:768px){
+        @media (max-width:768px) {
             display: none;
         }
 
@@ -358,6 +337,120 @@
         figure {
             height: auto;
             object-fit: contain;
+        }
+    }
+}
+
+.bonuses-card {
+    @include gradientBorder;
+
+    padding: 30px 20px;
+
+    .icon {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        transform: translate(0, -50%);
+
+        width: 99px;
+        height: 99px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+        background: linear-gradient(180deg, #FF0010 0%, #85020A 100%);
+
+        img,
+        svg {
+            width: 60px;
+            height: 60px;
+            flex: 0 0 auto;
+            object-fit: contain;
+        }
+    }
+
+    h3 {
+        margin-bottom: 8px;
+
+        @media (max-width:768px) {
+            width: 70%;
+        }
+    }
+}
+
+.review-card {
+    @include gradientBorder;
+    padding: 40px;
+
+    @media (max-width:768px) {
+        padding: 30px 16px 80px 16px;
+    }
+
+
+    // .review-card__top
+
+    &__top {
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+
+        span {
+            font-size: 20px;
+            font-weight: 700;
+
+            background: linear-gradient(180deg, #FF0010 0%, #85020A 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            @media (max-width:768px) {
+                font-size: 16px;
+            }
+        }
+    }
+
+    time {
+        color: #848484;
+        font-size: 17px;
+        font-weight: 300;
+
+        @media (max-width:768px){
+            position: absolute;
+            bottom: 30px;
+            left: 16px;
+            font-size: 13px;
+        }
+    }
+
+    .rating {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 125%;
+
+        @media (max-width:768px){
+            font-size: 14px;
+        }
+
+        img,
+        svg {
+            width: 22px;
+            height: 22px;
+            flex: 0 0 auto;
+        }
+    }
+
+    p {
+        margin-top: 24px;
+
+        @media (max-width:768px){
+            font-size: 14px;
         }
     }
 }

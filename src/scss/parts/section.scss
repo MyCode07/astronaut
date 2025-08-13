@@ -116,6 +116,7 @@
 }
 
 .play {
+    background-color: $white;
 
     .pagination {
         display: flex;
@@ -160,6 +161,318 @@
                 background: linear-gradient(180deg, #FF0010 0%, #85020A 100%);
                 color: $white;
                 border: 0;
+            }
+        }
+    }
+}
+
+.scroll-wrapper {
+    @media (max-width:768px) {
+        width: 100vw;
+        padding-inline: 16px;
+        margin-left: -16px;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        table {
+            width: fit-content;
+        }
+    }
+}
+
+.pay {
+    background-color: $white;
+
+    // .pay-table
+
+    &-table {
+        min-width: 670px;
+
+        .top {
+            td {
+                font-weight: 700;
+            }
+        }
+
+        tr {
+
+            span {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+        }
+
+        td {
+            width: 20%;
+            font-weight: 500;
+
+            &:has(img) {
+
+                img,
+                svg {
+                    width: 32px;
+                    height: 32px;
+                    object-fit: contain;
+                    border-radius: 10px;
+                    margin-right: 8px;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+.bonuses {
+
+    .section__title {
+        margin-bottom: 95px;
+
+        @media (max-width:768px) {
+            margin-bottom: 76px;
+        }
+    }
+
+    .swiper {
+
+        @media (min-width:769px) {
+            overflow: visible;
+        }
+
+        @media (max-width:768px) {
+            width: 100vw;
+            padding-inline: 16px;
+            margin-left: -16px;
+
+            padding-top: 50px;
+            margin-top: -50px;
+            padding-bottom: 20px;
+            margin-bottom: -20px;
+        }
+
+        &-wrapper {
+            @media (min-width:769px) {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 80px 24px;
+                overflow: visible;
+            }
+        }
+
+        &-slide {
+            @media (max-width:768px) {
+                width: 288px;
+            }
+        }
+    }
+
+    .swiper-btns {
+        @media (min-width:769px) {
+            display: none;
+        }
+    }
+
+}
+
+.strategies {
+    h2 {
+        @media (max-width:570px) {
+            br {
+                display: none;
+            }
+        }
+    }
+}
+
+
+.tabs {
+
+    button {
+        height: 60px;
+        width: 100%;
+        font-size: 20px;
+        text-transform: uppercase;
+        text-align: left;
+        justify-content: flex-start;
+
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: 2px solid #FF0010;
+
+        &:not(._active) {
+            color: $black;
+        }
+
+        &._active {
+            border: 0;
+        }
+
+
+        @media (max-width:768px) {
+            font-size: 16px;
+            padding: 16px;
+            height: 50px;
+        }
+    }
+
+    // .tabs-btns
+
+    &-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        button {
+            @media (max-width:768px) {
+                display: none;
+            }
+        }
+    }
+
+
+    // .tabs-contnet
+
+    &-contnet {
+        button {
+            @media (min-width:769px) {
+                display: none;
+            }
+        }
+    }
+
+    [data-tab-content] {
+        @media (max-width:768px) {
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+
+        &:not(._active) {
+
+            @media (min-width:769px) {
+                display: none;
+            }
+
+            @media (max-width:768px) {
+                ._text-box {
+                    display: none;
+                }
+            }
+        }
+
+        &._active {
+            @media (max-width:768px) {
+                @include gradientBorder;
+            }
+        }
+    }
+
+    ._text-box {
+
+        @media (min-width:769px) {
+            @include gradientBorder;
+            padding: 40px 30px;
+        }
+
+        @media (max-width:768px) {
+            padding: 30px 16px;
+        }
+    }
+}
+
+.reviews {
+    @media (min-width:769px) {
+        @include adaptive-value('padding-top', 226, 50, 1);
+        @include adaptive-value('padding-bottom', 226, 50, 1);
+    }
+
+
+    .section__body {
+        @media (min-width:769px) {
+            display: flex;
+            gap: 24px;
+            position: relative;
+        }
+    }
+
+    .section__title {
+        @media (min-width:769px) {
+            width: 360px;
+            flex: 0 0 auto;
+            text-align: left;
+            padding-top: 35px;
+        }
+    }
+
+    // .reviews-bg
+
+    &-bg {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        z-index: -1;
+
+        @media (min-width:769px) {
+            @include adaptive-value('width', 573, 350, 1);
+        }
+
+        @media (max-width:768px) {
+            width: 215px;
+            height: 70%;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+
+        @media (max-width:600px) {
+            width: 150px;
+        }
+
+        img,
+        picture {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: left;
+        }
+    }
+
+    // .reviews-slider
+
+    &-slider {
+        width: 100%;
+        min-width: 0;
+        min-height: 0;
+
+        .swiper {
+            min-width: 0;
+            min-height: 0;
+
+            padding: 20px;
+            margin: -20px;
+
+            @media (min-width:769px) {
+                width: calc(50vw + 107px);
+            }
+
+            &-slide {
+                max-width: 600px;
+
+                @media (max-width:768px) {
+                    width: 288px;
+                }
+            }
+        }
+
+        .swiper-btns {
+            @media (min-width:769px) {
+                position: absolute;
+                left: 0;
+                bottom: 35px;
+                z-index: 2;
             }
         }
     }

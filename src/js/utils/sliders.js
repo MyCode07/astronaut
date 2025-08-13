@@ -41,5 +41,29 @@ if (casinoSlider.length) {
                 }
             })
         }
+
+        if (slider.closest('.bonuses') && window.innerWidth <= 768) {
+            new Swiper(slider, {
+                modules: [Navigation],
+                slidesPerView: 'auto',
+                spaceBetween: 8,
+                navigation: {
+                    prevEl: prev,
+                    nextEl: next,
+                }
+            })
+        }
+
+        if (slider.closest('.reviews')) {
+            new Swiper(slider, {
+                modules: [Navigation],
+                slidesPerView: 'auto',
+                spaceBetween: 30,
+                navigation: {
+                    prevEl: prev,
+                    nextEl: next,
+                }
+            })
+        }
     })
 }   

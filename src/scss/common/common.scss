@@ -162,10 +162,26 @@ td {
             }
         }
     }
+
+    // ._button-red
+
+    &-red {
+        border-radius: 10px;
+        border: none;
+        background: linear-gradient(180deg, #FF0010 0%, #85020A 100%);
+        box-shadow: 0 3.664px 7.329px 0 rgba(0, 0, 0, 0.06), 0 0 0.916px 0 rgba(0, 0, 0, 0.06);
+        color: $white;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $white;
+                background: linear-gradient(98deg, #2CD600 32.6%, #1A7D00 105%);
+            }
+        }
+    }
 }
 
 ._text-box {
-
 
     h1,
     h2,
@@ -234,6 +250,7 @@ table {
 
     td {
         // flex: 1 1 auto;
+        line-height: normal;
     }
 
     p {

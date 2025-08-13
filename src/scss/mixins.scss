@@ -87,3 +87,25 @@ $mobileWidth: 320;
         padding-inline: 16px;
     }
 }
+
+
+@mixin gradientBorder {
+    border-radius: 12px;
+    position: relative;
+    background: $white;
+    box-shadow: 0 3.664px 7.329px 0 rgba(0, 0, 0, 0.06),
+        0 0 0.916px 0 rgba(0, 0, 0, 0.06);
+
+    &:before {
+        position: absolute;
+        content: '';
+
+        inset: -2px;
+
+        z-index: -1;
+        border-radius: 14px;
+
+        background: linear-gradient(rgba($color: #E90307, $alpha: 0.55),
+                rgba($color: #AF0003, $alpha: 0.03));
+    }
+}
