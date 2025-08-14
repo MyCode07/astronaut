@@ -1,6 +1,5 @@
 const tabAreas = document.querySelectorAll('[data-tabs-area]');
 
-
 if (tabAreas.length) {
     tabAreas.forEach(area => {
         const tabs = area.querySelectorAll('[data-tab]');
@@ -37,3 +36,11 @@ if (tabAreas.length) {
         })
     })
 }
+
+document.addEventListener('click', function (e) {
+    let targetEl = e.target;
+
+    if (targetEl.closest('.casino-line') && targetEl.tagName =='BUTTON') {
+        targetEl.closest('.casino-line').classList.toggle('_active')
+    }
+})

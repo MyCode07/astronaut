@@ -19,6 +19,9 @@
     // .hero__body
 
     &__body {
+        @include adaptive-value('padding-top', 157, 60, 1);
+        @include adaptive-value('padding-bottom', 229, 106, 1);
+
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -26,9 +29,6 @@
 
         position: relative;
         z-index: 1;
-
-        padding-top: 157px;
-        padding-bottom: 229px;
 
         text-align: center;
 
@@ -53,83 +53,172 @@
             max-width: 668px;
             color: $white;
         }
+    }
 
-        div {
-            display: flex;
-            align-items: center;
-            gap: 16px;
+    // .hero__btns
 
-            margin-top: 50px;
+    &__btns {
+        display: flex;
+        align-items: center;
+        gap: 16px;
 
-            @media (max-width: 768px) {
-                flex-direction: column;
+        margin-top: 50px;
 
+        @media (max-width: 768px) {
+            flex-direction: column;
+            margin-top: 30px;
+
+            ._button {
+                width: 100%;
             }
         }
     }
 
-    // .hero-page
+    // .hero-demo
 
-    &-page {
+    &-demo {
+
         .hero__body {
-            @media (max-width: 768px) {
-                flex-direction: column-reverse;
-            }
+            @include adaptive-value('padding-top', 94, 60, 1);
+            @include adaptive-value('padding-bottom', 70, 60, 1);
         }
 
-        .fishka {
-            height: 669px;
+        // .hero-demo__frame
+
+        &__frame {
+            position: relative;
+            width: 100%;
+            margin-top: 40px;
+
+            @include adaptive-value('height', 553, 331, 1);
+
+            @include gradientBorder;
+            border-radius: 10px;
+
+            img,
+            picture {
+                border-radius: 8px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            @media (max-width:768px) {
+                margin-top: 30px;
+            }
+
+
+            .hero__btns {
+                margin-top: 0;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+            }
+
         }
     }
 
-    // .casino-review
+    // .hero-app
 
-    &.casino-review {
-        .hero__left {
-            & > div {
-                & > span {
-                    display: block;
-                    color: #fff;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    @include adaptive-value("font-size", 24, 20, 1);
+    &-app {
+        .hero__body {
+            @include adaptive-value('padding-top', 150, 60, 1);
+            @include adaptive-value('padding-bottom', 237, 60, 1);
+
+            @media (min-width:769px) {
+                text-align: left;
+                align-items: flex-start;
+            }
+
+            @media (max-width:768px) {
+                padding-bottom: 0 !important;
+
+                h1 br {
+                    display: none;
                 }
+            }
+        }
 
-                label {
-                    display: block;
+        p {
+            max-width: 590px;
+        }
 
-                    color: #fff;
-                    font-size: 16px;
-                    font-family: Montserrat;
+        .image {
+            width: 78%;
+
+            @media (min-width:769px) {
+                position: absolute;
+                bottom: 0;
+                right: -75px;
+            }
+
+            @media (max-width:768px) {
+                width: 118%;
+                margin-top: 40px;
+                transform: translate(-19%, 0);
+            }
+
+            img,
+            picture {
+                width: 100%;
+            }
+        }
+    }
+
+    // .hero-promo
+
+    &-promo {
+        .hero__body {
+            @include adaptive-value('padding-top', 120, 60, 1);
+            @include adaptive-value('padding-bottom', 120, 60, 1);
+
+            @media (min-width:769px) {
+                display: grid;
+                gap: 20px;
+                grid-template-columns: repeat(2, 1fr);
+                text-align: left;
+                align-items: flex-start;
+            }
+        }
+
+        .hero__btns {
+            display: grid;
+            grid-template-columns: 1fr 0.715fr;
+            gap: 16px 12px;
+
+            padding: 52px 78px;
+
+            @media (min-width:769px) {
+                margin-top: 0;
+            }
+
+            @media (max-width:768px) {
+                padding: 57px 16px;
+                width: 100%;
+            }
+
+
+            border-radius: 10px;
+            border: 1px solid var(--Linear, #FF0010);
+            background: linear-gradient(180deg, #28292B 0%, #171819 100%);
+            box-shadow: -5px 0 4.8px 0 rgba(0, 0, 0, 0.20) inset,
+            6px 0 3.5px 0 rgba(255, 255, 255, 0.10) inset,
+            0 -7px 4px 0 rgba(0, 0, 0, 0.25) inset,
+            0 5px 5.1px 0 rgba(255, 255, 255, 0.10) inset;
+
+            ._button {
+                width: auto;
+
+                @media (max-width:768px) {
+                    width: 100%;
                 }
+            }
 
-                &.labels {
-                    margin-top: 20px;
-
-                    @media (max-width: 768px) {
-                        justify-content: center;
-                        text-align: center;
-
-                        & > :first-child {
-                            margin-right: 20px;
-                            margin-bottom: 0;
-                        }
-                    }
-                }
-
-                @media (max-width: 768px) {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: center;
-
-                    a {
-                        margin-bottom: 0;
-                        max-width: 203px;
-                        margin-inline: 0;
-                        margin-right: 20px;
-                    }
-                }
+            ._button-gradient {
+                grid-column: span 2;
+                width: 100%;
             }
         }
     }

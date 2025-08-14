@@ -333,6 +333,31 @@
         }
     }
 
+    &.fix-cols {
+        .wp-block-columns:not(:last-child) {
+            padding-bottom: 0;
+            border-bottom: 0;
+            margin-bottom: 50px;
+
+            @media (max-width:768px) {
+                margin-bottom: 40px;
+            }
+        }
+
+        ._reverse {
+            @media (min-width:769px) {
+                padding-left: 0;
+
+                .wp-block-column {
+                    position: relative;
+
+                    &:has(h3) {
+                        padding-left: 63px;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .wp-block-table {

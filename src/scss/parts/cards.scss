@@ -417,7 +417,7 @@
         font-size: 17px;
         font-weight: 300;
 
-        @media (max-width:768px){
+        @media (max-width:768px) {
             position: absolute;
             bottom: 30px;
             left: 16px;
@@ -425,32 +425,298 @@
         }
     }
 
-    .rating {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-
-        font-size: 18px;
-        font-weight: 500;
-        line-height: 125%;
-
-        @media (max-width:768px){
-            font-size: 14px;
-        }
-
-        img,
-        svg {
-            width: 22px;
-            height: 22px;
-            flex: 0 0 auto;
-        }
-    }
-
     p {
         margin-top: 24px;
 
-        @media (max-width:768px){
+        @media (max-width:768px) {
             font-size: 14px;
+        }
+    }
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 125%;
+
+    @media (max-width:768px) {
+        font-size: 14px;
+    }
+
+    img,
+    svg {
+        width: 22px;
+        height: 22px;
+        flex: 0 0 auto;
+
+        @media (max-width:768px) {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+
+.features-card {
+
+    div {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+        flex: 0 0 auto;
+
+        img,
+        svg {
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            object-fit: contain;
+        }
+    }
+
+    h4 {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 28px;
+        text-transform: uppercase;
+
+        background: linear-gradient(180deg, #FF0010 0%, #85020A 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    p {
+        color: $white;
+    }
+}
+
+.casino-line {
+    @include gradientBorder;
+
+    // .casino-line__top
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        gap: 30px;
+        padding: 35px 24px;
+
+        @media (max-width:768px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px 16px;
+        }
+    }
+
+    // .casino-line__img
+
+    &__img {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        @media (max-width:768px) {
+            gap: 10px;
+        }
+
+        .img {
+            width: 111px;
+            height: 111px;
+            flex: 0 0 auto;
+
+            @media (max-width:600px) {
+                width: 80px;
+                height: 80px;
+            }
+
+            img,
+            picture {
+                border-radius: 5px;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        h4 {
+            margin-bottom: 6px;
+
+            @media (min-width:769px) {
+                font-size: 20px;
+            }
+        }
+    }
+
+    // .casino-line__text
+
+    &__text {
+        @media (min-width:601px) {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            max-width: 365px;
+            flex: 1 1 auto;
+        }
+
+
+        & > :first-child {
+            p {
+                font-family: Rubik;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 120%;
+
+                background: linear-gradient(180deg, #FF0010 0%, #85020A 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+                @media (max-width:768px) {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        label {
+            display: block;
+            margin-bottom: 16px;
+
+            @media (max-width:768px) {
+                margin-bottom: 8px;
+                font-size: 14px;
+            }
+        }
+
+        .promocode {
+            white-space: nowrap;
+
+            @media (max-width:768px) {
+                margin-top: 18px;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 18px;
+                font-weight: 600;
+                text-decoration-line: underline;
+                text-decoration-style: dotted;
+                text-decoration-skip-ink: none;
+                text-decoration-thickness: auto;
+                text-underline-offset: auto;
+                text-underline-position: from-font;
+
+                background: linear-gradient(180deg, #2CD600 0%, #1A7D00 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+
+    // .casino-line__btns
+
+    &__btns {
+        gap: 12px;
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width:768px) {
+            gap: 8px;
+            width: 100%;
+            flex-direction: row;
+
+            ._button {
+                width: 50%;
+            }
+        }
+
+        @media (max-width:600px) {
+            flex-direction: column;
+
+            ._button {
+                width: 100%;
+            }
+        }
+
+    }
+
+    // .casino-line__bottom
+
+    &:not(._active) {
+        .casino-line__bottom {
+            div {
+                display: none;
+
+            }
+
+            img,
+            svg {
+                transform: rotate(0);
+            }
+        }
+    }
+
+    &__bottom {
+        border-radius: 0 0 10px 10px;
+        background: #F7F7F7;
+        box-shadow: 0 3.664px 7.329px 0 rgba(0, 0, 0, 0.06), 0 0 0.916px 0 rgba(0, 0, 0, 0.06);
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 10px;
+
+            padding: 12px 24px;
+            border-radius: 12px;
+
+            @media (max-width:768px) {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            img,
+            svg {
+                width: 12px;
+                height: 12px;
+                flex: 0 0 auto;
+                pointer-events: none;
+
+                transition: transform 0.3s ease 0s;
+                transform: rotate(180deg);
+
+                @media (max-width:768px) {
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+        }
+
+        div {}
+
+        p {
+            font-size: 12px;
+            line-height: 150%;
+            padding: 0 24px 24px 24px;
+
+            @media (max-width:768px) {
+                font-size: 11px;
+                padding: 0 16px 16px 16px;
+            }
         }
     }
 }

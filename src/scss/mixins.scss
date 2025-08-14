@@ -110,6 +110,24 @@ $mobileWidth: 320;
     }
 }
 
+@mixin gradientBordeImage {
+    border-radius: 12px;
+    position: relative;
+    height: fit-content;
+
+    &:before {
+        position: absolute;
+        content: '';
+
+        inset: -2px;
+
+        z-index: -1;
+        border-radius: 14px;
+
+        background: linear-gradient(180deg, #FF0010 0%, #85020A 100%);
+    }
+}
+
 @mixin dropdownMenu {
     & > ul {
         opacity: 1;

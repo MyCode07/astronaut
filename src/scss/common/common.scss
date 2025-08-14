@@ -49,8 +49,8 @@ h6 {
 }
 
 h1 {
-    font-size: 56px;
     font-weight: 700;
+    @include adaptive-value('font-size', 56, 32, 1);
 }
 
 h2 {
@@ -66,7 +66,7 @@ h3 {
 }
 
 h4 {
-    font-style: 18px;
+    font-size: 18px;
     font-weight: 600;
 }
 
@@ -83,6 +83,13 @@ a {
 img,
 svg {
     display: block;
+}
+
+img,
+picture,
+figure {
+    width: auto;
+    height: auto;
 }
 
 .swiper {
@@ -178,6 +185,12 @@ td {
                 background: linear-gradient(98deg, #2CD600 32.6%, #1A7D00 105%);
             }
         }
+    }
+
+    // ._button-dot
+
+    &-dot {
+        border: 2px dashed #1A7D00;
     }
 }
 
@@ -457,30 +470,35 @@ table {
 
 
 .breadcrumbs {
-    margin-bottom: 24px;
-    margin-top: 8px;
+    padding-bottom: 24px;
+    padding-top: 20px;
 
-    @media (max-width:768px) {}
+    @media (max-width:768px) {
+        padding-top: 10px;
+        padding-bottom: 15px;
+    }
 
-    padding-top: 15px;
-    margin-bottom: 20px;
+    & + .details {
+        background-color: transparent;
+        padding-top: 0;
+    }
 
     ul {
         display: flex;
         align-items: center;
-        color: #808080;
-        font-family: Nunito;
-        font-size: 18px;
-        font-weight: 400;
         text-transform: capitalize;
 
         @media (max-width:768px) {
-            font-size: 16px;
+            font-size: 12px;
         }
 
         .sep {
-            color: #FF0185;
-            margin-inline: 6px;
+            margin-inline: 4px;
+        }
+
+        a,
+        .sep {
+            color: #808080;
         }
 
         li {

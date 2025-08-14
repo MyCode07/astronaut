@@ -124,6 +124,26 @@
 
 }
 
+.features {
+    background-color: #0E1012;
+
+    .section__title {
+        color: $white;
+
+        @media (max-width:768px) {
+            text-align: left;
+        }
+    }
+
+    .grid {
+        gap: 72px 48px;
+
+        @media (max-width:768px) {
+            gap: 38px;
+        }
+    }
+}
+
 .play {
     background-color: $white;
 
@@ -286,17 +306,6 @@
 
 }
 
-.strategies {
-    h2 {
-        @media (max-width:570px) {
-            br {
-                display: none;
-            }
-        }
-    }
-}
-
-
 .tabs {
 
     button {
@@ -392,6 +401,141 @@
     }
 }
 
+.strategies {
+    h2 {
+        @media (max-width:570px) {
+            br {
+                display: none;
+            }
+        }
+    }
+
+    // .strategies-demo
+
+    &-demo {
+
+        .grid {
+            @include gradientBorder;
+            background-color: transparent;
+
+
+            grid-template-columns: 200px 1fr;
+            gap: 2px;
+
+            @media (max-width:1024px) {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        [data-tab-content],
+        ._text-box {
+            height: 100%;
+        }
+
+        [data-tab-content] {
+            @media (max-width:1204px) {
+                border-radius: 0 0 12px 12px !important; overflow: hidden;
+            }
+
+            @media (max-width:768px) {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        .grid,
+        ._text-box {
+            &:before {
+                background: linear-gradient(180deg, #FF0010 0%, #85020A 100%);
+            }
+        }
+
+        ._text-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+
+            @media (max-width:1024px) {
+                border-radius: 0;
+
+                &:before {
+                    display: none;
+                }
+            }
+
+            @media (max-width:768px) {
+                display: flex;
+                flex-direction: column-reverse;
+                gap: 25px;
+
+            }
+
+            li::marker {
+                color: #FF0010;
+            }
+
+            ._button {
+                margin-top: 30px;
+
+                @media (max-width:1024px) {
+                    width: 100%;
+                }
+            }
+
+            .image {
+
+                img,
+                picture,
+                figure {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 8px;
+                    border: 2px solid #FF0010;
+                }
+            }
+        }
+
+        .tabs-btns {
+            gap: 0;
+            background-color: $white;
+            border-radius: 12px 0 0 12px;
+
+            @media (max-width:1024px) {
+                display: flex;
+                flex-direction: row;
+                padding: 12px 16px;
+                border-radius: 12px 12px 0 0;
+                overflow-y: auto;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+
+            button {
+                border: 0;
+                box-shadow: none;
+
+                @media (min-width:1025px) {
+                    border-radius: 10px 0 0 0;
+                }
+
+                @media (max-width:1024px) {
+                    width: fit-content;
+                    height: 50px;
+                    font-size: 16px;
+                    flex: 0 0 auto;
+                    white-space: nowrap;
+                }
+
+                @media (max-width:768px) {
+                    display: flex;
+                }
+            }
+        }
+    }
+}
+
 .reviews {
     background-color: $white;
 
@@ -425,7 +569,6 @@
         right: 0;
         top: 0;
         height: 100%;
-        z-index: -1;
 
         @media (min-width:769px) {
             @include adaptive-value('width', 573, 350, 1);
