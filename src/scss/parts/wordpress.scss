@@ -108,83 +108,6 @@
 
     }
 
-
-    &:not(:has(.flex__check)) {
-
-        ol,
-        ul {
-            font-size: 20px;
-            font-family: Nunito;
-            margin-bottom: 40px;
-
-            @media (max-width: 768px) {
-                font-size: 18px;
-            }
-
-            @media (min-width: 769px) {
-                padding-left: 2.6vw;
-            }
-
-            & > :not(:last-child) {
-                margin-bottom: 10px;
-            }
-
-            a {
-                color: #0085ff;
-                border-bottom: 1px solid currentColor;
-                transition: all 0.3s ease 0s;
-
-                @media (any-hover: hover) {
-                    &:hover {
-                        color: #ff008a;
-                    }
-                }
-            }
-
-            p {
-                margin: 0 !important;
-            }
-
-            li {
-                position: relative;
-                padding-left: 1.2em;
-
-                &:before {
-                    width: 9px;
-                    height: 9px;
-                    flex: 0 0 auto;
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                }
-            }
-        }
-
-        ol {
-            counter-reset: num;
-
-            li {
-                counter-increment: num;
-
-                &:before {
-                    content: counter(num) ".";
-                }
-            }
-        }
-
-        ul {
-            li {
-                &:before {
-                    content: "";
-                    border-radius: 50%;
-                    background: linear-gradient(133deg, #ff008a 0%, #ff004d 100%);
-                    top: 6px;
-                }
-            }
-        }
-    }
-
-
     &.is-layout-flex {
         display: flex;
 
@@ -354,6 +277,116 @@
                     &:has(h3) {
                         padding-left: 63px;
                     }
+                }
+            }
+        }
+    }
+
+    &.cospros {
+        &:before {
+            display: none;
+        }
+
+        h2 {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+
+            @media (max-width:768px) {
+                gap: 12px;
+            }
+
+            &:before {
+                display: block;
+                content: '';
+                left: 0;
+                top: 0;
+                background-size: contain;
+                background-repeat: no-repeat;
+                width: 76px;
+                height: 76px;
+                flex: 0 0 auto;
+                background-image: url('@img/icons/cos.svg');
+
+                @media (max-width:768px) {
+                    width: 48px;
+                    height: 48px;
+                }
+            }
+        }
+
+        ol {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            list-style: none;
+            padding-left: 0;
+
+            @media (max-width:768px) {
+                gap: 10px;
+            }
+
+            li {
+                list-style: none;
+
+                font-size: 18px;
+                font-weight: 600;
+                line-height: normal;
+                font-family: Inter;
+
+                padding: 20px 40px;
+
+                border-radius: 12px;
+                border: 2px solid #2AC901;
+                background: $white;
+                box-shadow: 0 3.664px 7.329px 0 rgba(0, 0, 0, 0.06), 0 0 0.916px 0 rgba(0, 0, 0, 0.06);
+
+                @media (max-width:768px) {
+                    font-size: 14px;
+                    padding: 16px 27px;
+                }
+
+                &:before {
+                    position: absolute;
+                    content: '';
+                    left: 0;
+                    top: 0;
+                    width: 38px;
+                    height: 38px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-image: url('@img/icons/ok.svg');
+                    top: 50%;
+                    left: 0;
+                    transform: translate(-50%, -50%);
+                    background-color: $white;
+                    border-radius: 50%;
+
+                    @media (max-width:768px) {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+        }
+
+        & > :last-child {
+            @media (min-width:769px) {
+                padding-left: 12px;
+            }
+
+            h2:before {
+                background-image: url('@img/icons/pros.svg');
+            }
+
+            ol li {
+                border-color: #C90104;
+
+                &:before {
+                    background-image: url('@img/icons/notok.svg');
                 }
             }
         }

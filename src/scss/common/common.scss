@@ -187,9 +187,9 @@ td {
         }
     }
 
-    // ._button-dot
+    // ._button-promocode
 
-    &-dot {
+    &-promocode {
         border: 2px dashed #1A7D00;
     }
 }
@@ -237,7 +237,7 @@ td {
 
         @media (any-hover: hover) {
             &:hover {
-                color: #ff008a;
+                color: $black;
             }
         }
     }
