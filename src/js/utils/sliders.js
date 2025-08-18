@@ -35,11 +35,40 @@ if (casinoSlider.length) {
                     },
                 },
                 on: {
-                    slideChange: (swiper) => {
-                        console.log(swiper.activeIndex, swiper.slides.length);
+                    init: function () {
+                        updateProgressBar(this);
+                        updateBullets(this);
+                    },
+                    slideChange: function () {
+                        updateProgressBar(this);
+                        updateBullets(this);
+                    },
+                    transitionEnd: function () {
+                        updateProgressBar(this);
                     }
                 }
             })
+
+            function updateProgressBar(swiper) {
+                const totalSlides = swiper.slides.length;
+                const progress = (swiper.activeIndex / (totalSlides - 1)) * 100;
+                document.querySelector('.custom-progress-bar').style.width = `${progress}%`;
+            }
+
+            function updateBullets(swiperInstance) {
+                const bullets = swiperInstance.pagination.bullets;
+
+                bullets.forEach(bullet => {
+                    bullet.classList.remove('swiper-pagination-bullet-passed');
+                });
+
+                const activeIndex = swiperInstance.realIndex; 
+                for (let i = 0; i < activeIndex; i++) {
+                    if (bullets[i]) {
+                        bullets[i].classList.add('swiper-pagination-bullet-passed');
+                    }
+                }
+            }
         }
 
         if (slider.closest('.bonuses') && window.innerWidth <= 768) {
@@ -66,4 +95,4 @@ if (casinoSlider.length) {
             })
         }
     })
-}   
+}

@@ -1,11 +1,8 @@
 .wp-block-columns {
-
     position: relative;
-
     @include container;
     padding-top: 70px;
     padding-bottom: 70px;
-
 
     &:before {
         position: absolute;
@@ -20,7 +17,6 @@
     }
 
     &:has(.schema-faq) {
-
         &:before {
             display: none;
         }
@@ -41,7 +37,6 @@
         }
     }
 
-
     &._max-width1024 {
         .wp-block-column {
             max-width: 1024px;
@@ -57,7 +52,6 @@
     p {
         margin-top: 16px;
         margin-bottom: 16px;
-
 
         a {
             color: #0085ff;
@@ -82,8 +76,8 @@
 
     h2 {
         margin-bottom: 40px;
-        // text-align: center;
 
+        // text-align: center;
         @media (max-width:768px) {
             margin-bottom: 30px;
         }
@@ -104,8 +98,6 @@
         border-radius: 10px;
 
         @media (max-width: 768px) {}
-
-
     }
 
     &.is-layout-flex {
@@ -153,7 +145,6 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
-
     }
 
     &.num-cols {
@@ -168,13 +159,31 @@
             }
         }
 
+        h2 {
+            margin-bottom: 20px;
+        }
+
         p {
             margin-top: 0 !important;
+
+            &.has-text-align-center {
+                max-width: 640px;
+                margin-inline: auto;
+            }
+
+            & + .wp-block-columns {
+                margin-top: 60px;
+
+                @media (max-width:768px) {
+                    margin-top: 30px;
+                }
+            }
         }
 
         img {
             border-radius: 10px;
             height: auto;
+            margin-top: 0;
         }
 
         .wp-block-columns {
@@ -212,18 +221,15 @@
                     content: counter(num);
                     left: 0;
                     top: -0.25em;
-
                     background: linear-gradient(180deg, #FF0010 0%, #85020A 100%);
                     background-clip: text;
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
-
                     font-family: Rubik;
                     font-size: 80px;
                     font-weight: 600;
                     line-height: normal;
                     text-transform: uppercase;
-
 
                     @media (max-width:768px) {
                         font-size: 70px;
@@ -238,7 +244,6 @@
     &.white-bgc-pd {
         border-radius: 10px;
         background: $white;
-
 
         @media (min-width:1101px) {
             padding: 40px;
@@ -321,7 +326,6 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-
             list-style: none;
             padding-left: 0;
 
@@ -331,14 +335,11 @@
 
             li {
                 list-style: none;
-
                 font-size: 18px;
                 font-weight: 600;
                 line-height: normal;
                 font-family: Inter;
-
                 padding: 20px 40px;
-
                 border-radius: 12px;
                 border: 2px solid #2AC901;
                 background: $white;
@@ -397,7 +398,6 @@
     overflow-x: unset !important;
 }
 
-
 .schema-faq {
     margin-top: 40px;
     display: grid;
@@ -410,10 +410,8 @@
     }
 
     // .schema-faq-section
-
     &-section {
         @include gradientBorder;
-
         padding: 40px 30px;
         position: relative;
         height: fit-content;
@@ -450,19 +448,15 @@
             content: "";
             top: 40px;
             right: 30px;
-
             width: 42px;
             height: 42px;
             border-radius: 8px;
-
             background: #FFF7F7;
-
             cursor: pointer;
 
             @media (max-width:768px) {
                 width: 30px;
                 height: 30px;
-
                 top: 30px;
                 right: 20px;
             }
@@ -470,10 +464,8 @@
     }
 
     // .schema-faq-question
-
     &-question {
         cursor: pointer;
-
         font-family: Rubik;
         font-size: 20px;
         font-weight: 500;
@@ -515,14 +507,12 @@
     }
 
     // .schema-faq-answer
-
     &-answer {
         padding-top: 0 !important;
         border-top: 0 !important;
         margin-top: 0 !important;
         margin-bottom: 0 !important;
         max-width: 80%;
-
         transition: all 0.3s ease 0s;
         max-height: 0;
         overflow: hidden;

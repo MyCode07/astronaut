@@ -4,7 +4,6 @@ html {
 
 body {
     scroll-behavior: smooth;
-
     font-family: Inter;
     font-size: 16px;
     line-height: 150%;
@@ -25,7 +24,6 @@ body {
     min-height: 100%;
     scroll-behavior: smooth;
     overflow-x: clip;
-
     display: flex;
     flex-direction: column;
 }
@@ -58,7 +56,6 @@ h2 {
     font-weight: 600;
     text-transform: uppercase;
 }
-
 
 h3 {
     font-size: 24px;
@@ -93,10 +90,28 @@ figure {
 }
 
 .swiper {
-    // .swiper-slide
 
+    // .swiper-slide
     &-slide {
         height: auto;
+    }
+}
+
+.custom-progress {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;
+    height: 2px;
+    background: #D1D5DB;
+
+    // .custom-progress-bar
+    &-bar {
+        background: linear-gradient(180deg, #FF0010 0%, #85020A 100%);
+        height: 100%;
+        width: 0;
+        transition: width 0.3s ease;
     }
 }
 
@@ -124,20 +139,15 @@ td {
     display: flex;
     align-items: center;
     justify-content: center;
-
-
     width: 202px;
     height: 55px;
     padding: 0 12px;
     border-radius: 5px;
-
     color: $white;
     font-size: 18px;
     font-weight: 700;
     line-height: 150%;
-
     transition: all 0.3s ease 0s;
-
     border: 2px solid $white;
     background: rgba(255, 255, 255, 0.10);
     box-shadow: 1.5px 3px 3px 0 rgba(0, 0, 0, 0.08);
@@ -155,7 +165,6 @@ td {
     }
 
     // ._button-gradient
-
     &-gradient {
         border: none;
         background: linear-gradient(180deg, #2CD600 0%, #1A7D00 100%);
@@ -171,7 +180,6 @@ td {
     }
 
     // ._button-red
-
     &-red {
         border-radius: 10px;
         border: none;
@@ -188,7 +196,6 @@ td {
     }
 
     // ._button-promocode
-
     &-promocode {
         border: 2px dashed #1A7D00;
     }
@@ -241,7 +248,6 @@ td {
             }
         }
     }
-
 }
 
 table {
@@ -249,7 +255,6 @@ table {
     overflow: hidden;
     border-collapse: unset;
     border-spacing: 0;
-
     border-radius: 10px;
     box-shadow: 0 3.664px 7.329px 0 rgba(0, 0, 0, 0.06), 0 0 0.916px 0 rgba(0, 0, 0, 0.06);
 
@@ -264,6 +269,19 @@ table {
     td {
         // flex: 1 1 auto;
         line-height: normal;
+
+        &:has(img) {
+
+            img,
+            svg {
+                width: 32px;
+                height: 32px;
+                object-fit: contain;
+                border-radius: 10px;
+                margin-right: 8px;
+                display: inline-block;
+            }
+        }
     }
 
     p {
@@ -299,7 +317,6 @@ table {
     @media (max-width: 1024px) {}
 
     thead {
-
         th {}
 
         p,
@@ -307,7 +324,6 @@ table {
     }
 
     tbody {
-
         td {
             background-color: #fff;
         }
@@ -322,6 +338,24 @@ table {
 
         & > :nth-child(2n) td {
             background-color: #FAFAFA;
+        }
+    }
+}
+
+.scroll-wrapper {
+    @media (max-width:768px) {
+        width: 100vw !important;
+        padding-inline: 16px;
+        margin-left: -16px;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        table {
+            width: fit-content !important;
+            min-width: 670px !important;
         }
     }
 }
@@ -377,10 +411,8 @@ table {
         summary {
             padding: 12px 20px;
             cursor: pointer;
-
             border-radius: 5px;
             background: linear-gradient(180deg, #E90307 0%, #730103 100%);
-
             color: $white;
             font-size: 18px;
             font-weight: 700;
@@ -437,16 +469,13 @@ table {
 
         a {
             width: fit-content;
-
             border-radius: 10px;
             border: 1px solid $black;
-
             text-align: center;
             display: inline-block;
             margin-right: 6px;
             margin-bottom: 12px;
             padding: 8px 12px;
-
             font-size: 13px;
             line-height: 150%;
 
@@ -467,7 +496,6 @@ table {
         }
     }
 }
-
 
 .breadcrumbs {
     padding-bottom: 24px;
@@ -507,7 +535,6 @@ table {
     }
 }
 
-
 .swiper-btns {
     display: flex;
     align-items: center;
@@ -522,7 +549,6 @@ table {
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-
         background-color: $white;
         box-shadow: 0 3.664px 7.329px 0 rgba(0, 0, 0, 0.06), 0 0 0.916px 0 rgba(0, 0, 0, 0.06);
 
