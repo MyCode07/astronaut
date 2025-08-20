@@ -40,6 +40,20 @@
             border-bottom: 1px solid #8D8D8D;
             padding: 8px 0;
         }
+
+        &._error {
+
+            input,
+            textarea,
+            label {
+                color: red;
+            }
+
+            input,
+            textarea {
+                border-color: red;
+            }
+        }
     }
 
     // .form-text
@@ -62,4 +76,8 @@
             width: 100%;
         }
     }
+}
+
+.wpcf7-response-output {
+    @include gradientBorder;
 }
