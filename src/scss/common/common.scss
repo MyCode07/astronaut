@@ -254,22 +254,27 @@ table {
         font-size: 12px;
     }
 
-    tr {
-        // display: flex;
-    }
-
     td {
-        // flex: 1 1 auto;
         line-height: normal;
+        border: 0 !important;
+
+        strong {
+            &:has(img) {
+                display: flex;
+                align-items: center;
+            }
+        }
 
         &:has(img) {
 
             img,
             svg {
+                flex: 0 0 auto;
                 width: 32px;
                 height: 32px;
                 object-fit: contain;
                 border-radius: 10px;
+                margin: 0;
                 margin-right: 8px;
                 display: inline-block;
             }
