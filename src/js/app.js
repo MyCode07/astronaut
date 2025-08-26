@@ -1,14 +1,10 @@
-// import './utils/smoothscrol.js';
 import './utils/menu.js';
 import './utils/sliders.js';
 import './utils/casino.js';
 import './utils/tabs.js';
 import './utils/faq.js';
-
-// import './utils/inputmask.js';
 import './utils/accordeon.js';
-// import './utils/replace.js';
-// import './utils/breadcrumbs.js';
+import './utils/popup.js';
 
 
 document.addEventListener('click', function (e) {
